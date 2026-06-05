@@ -1,9 +1,9 @@
 schema_name,total,correct,score
-account_number,20,4,0.2
-private_address,20,10,0.5
-private_date,20,2,0.1
-private_email,20,13,0.65
-private_person,20,7,0.35
-private_phone,20,10,0.5
-private_url,20,5,0.25
-secret,20,3,0.15
+account_number,20,4,0.200
+private_address,20,10,0.500
+private_date,20,2,0.100
+private_email,20,13,0.650
+private_person,20,7,0.350
+private_phone,20,10,0.500
+private_url,20,5,0.250
+secret,20,3,0.150

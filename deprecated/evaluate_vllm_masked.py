@@ -9,7 +9,7 @@ import json
 from pathlib import Path
 import re
 
-from core.service.privacy_eval import OPENAI_PRIVACY_LABELS
+from core.service.privacy_eval import OPENAI_PRIVACY_LABELS, format_metric
 
 
 DEFAULT_INPUT = Path("results/tw-pii-vllm-compatible_masked.csv")
@@ -75,8 +75,8 @@ def main(argv: list[str] | None = None) -> int:
         "tp": total_tp,
         "fp": total_fp,
         "fn": total_fn,
-        "accuracy": round(accuracy, 6),
-        "macro_f1": round(macro_f1, 6),
+        "accuracy": format_metric(accuracy),
+        "macro_f1": format_metric(macro_f1),
     }
 
     args.overall_output.parent.mkdir(parents=True, exist_ok=True)
@@ -115,8 +115,8 @@ def summarize(detail_rows: list[dict[str, object]]) -> list[dict[str, object]]:
                 "tp": tp,
                 "fp": fp,
                 "fn": fn,
-                "accuracy": round(accuracy, 6),
-                "f1": round(f1, 6),
+                "accuracy": format_metric(accuracy),
+                "f1": format_metric(f1),
             }
         )
     return rows

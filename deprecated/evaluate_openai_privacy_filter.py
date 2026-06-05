@@ -10,7 +10,13 @@ from pathlib import Path
 from transformers import AutoTokenizer
 
 from core.service.openai_privacy_filter_model import DEFAULT_MODEL_PATH
-from core.service.privacy_eval import exact_match_counts, labels_to_spans, load_gold_spans, summarize_counts
+from core.service.privacy_eval import (
+    exact_match_counts,
+    format_metric,
+    labels_to_spans,
+    load_gold_spans,
+    summarize_counts,
+)
 
 
 DEFAULT_INPUT = Path("results/tw-pii-openai-in-shcema_predictions.csv")
@@ -78,8 +84,8 @@ def main(argv: list[str] | None = None) -> int:
         "tp": total_tp,
         "fp": total_fp,
         "fn": total_fn,
-        "accuracy": round(accuracy, 6),
-        "macro_f1": round(macro_f1, 6),
+        "accuracy": format_metric(accuracy),
+        "macro_f1": format_metric(macro_f1),
     }
 
     args.per_label_output.parent.mkdir(parents=True, exist_ok=True)

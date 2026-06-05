@@ -192,7 +192,7 @@ def predict_spans(text: str, analyzer: AnalyzerEngine | None = None) -> list[dic
             "start": int(result.start),
             "end": int(result.end),
             "text": text[result.start : result.end],
-            "score": round(float(result.score), 6),
+            "score": round(float(result.score), 3),
         }
         for result in results
         if result.entity_type in SUPPORTED_LABELS and result.end > result.start

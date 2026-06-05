@@ -8,8 +8,6 @@ import json
 from pathlib import Path
 import re
 
-from transformers import AutoTokenizer
-
 from core.service.openai_privacy_filter_model import DEFAULT_MODEL_PATH
 from core.service.privacy_eval import labels_to_spans, load_gold_spans
 
@@ -19,6 +17,7 @@ DEFAULT_OVERALL = Path("results/tw-pii-vllm-compatible_masked_str_match_overall.
 DEFAULT_BY_LABEL = Path("results/tw-pii-vllm-compatible_masked_str_match_by_label.csv")
 DEFAULT_DETAILS = Path("results/tw-pii-vllm-compatible_masked_str_match_details.csv")
 WHITESPACE_RE = re.compile(r"\s+")
+SCORE_DECIMAL_PLACES = 3
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -47,9 +46,7 @@ def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     details: list[dict[str, object]] = []
     tokenizer = (
-        AutoTokenizer.from_pretrained(args.model_path, local_files_only=True)
-        if args.source == "openai_token_labels"
-        else None
+        load_tokenizer(args.model_path) if args.source == "openai_token_labels" else None
     )
 
     with args.input.open("r", encoding="utf-8", newline="") as input_file:
@@ -87,7 +84,7 @@ def main(argv: list[str] | None = None) -> int:
     overall = {
         "total": total,
         "correct": correct,
-        "score": round(correct / total, 6) if total else 0.0,
+        "score": format_score(correct / total if total else 0.0),
     }
     by_label = summarize_by_label(details)
 
@@ -105,6 +102,12 @@ def main(argv: list[str] | None = None) -> int:
 
 def mask_text_with_gold_spans(text: str, raw_spans: str) -> str:
     return mask_text_with_spans(text, load_gold_spans(raw_spans))
+
+
+def load_tokenizer(model_path: str):
+    from transformers import AutoTokenizer
+
+    return AutoTokenizer.from_pretrained(model_path, local_files_only=True)
 
 
 def mask_text_with_openai_token_labels(row: dict[str, str], tokenizer) -> str:
@@ -145,10 +148,14 @@ def summarize_by_label(details: list[dict[str, object]]) -> list[dict[str, objec
                 "schema_name": label,
                 "total": total,
                 "correct": correct,
-                "score": round(correct / total, 6) if total else 0.0,
+                "score": format_score(correct / total if total else 0.0),
             }
         )
     return rows
+
+
+def format_score(score: float) -> str:
+    return f"{score:.{SCORE_DECIMAL_PLACES}f}"
 
 
 def write_csv(path: Path, rows: list[dict[str, object]]) -> None:

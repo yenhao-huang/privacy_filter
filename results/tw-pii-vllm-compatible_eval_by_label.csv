@@ -1,9 +1,9 @@
 label,tp,fp,fn,accuracy,f1
-account_number,42,2,14,0.724138,0.84
-private_address,27,0,0,1.0,1.0
-private_date,26,2,5,0.787879,0.881356
-private_email,24,0,0,1.0,1.0
-private_person,57,15,0,0.791667,0.883721
-private_phone,28,3,0,0.903226,0.949153
-private_url,23,0,3,0.884615,0.938776
-secret,22,6,1,0.758621,0.862745
+account_number,42,2,14,0.724,0.840
+private_address,27,0,0,1.000,1.000
+private_date,26,2,5,0.788,0.881
+private_email,24,0,0,1.000,1.000
+private_person,57,15,0,0.792,0.884
+private_phone,28,3,0,0.903,0.949
+private_url,23,0,3,0.885,0.939
+secret,22,6,1,0.759,0.863

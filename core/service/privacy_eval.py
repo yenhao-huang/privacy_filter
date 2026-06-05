@@ -17,6 +17,7 @@ OPENAI_PRIVACY_LABELS = {
     "private_url",
     "secret",
 }
+METRIC_DECIMAL_PLACES = 3
 
 
 @dataclass(frozen=True, order=True)
@@ -149,8 +150,12 @@ def summarize_counts(rows: list[dict[str, object]]) -> list[dict[str, object]]:
                 "tp": tp,
                 "fp": fp,
                 "fn": fn,
-                "accuracy": round(accuracy, 6),
-                "f1": round(f1, 6),
+                "accuracy": format_metric(accuracy),
+                "f1": format_metric(f1),
             }
         )
     return summary
+
+
+def format_metric(value: float) -> str:
+    return f"{value:.{METRIC_DECIMAL_PLACES}f}"

@@ -36,48 +36,48 @@ This metric creates the gold masked string from benchmark spans, removes whitesp
 
 | model | total | correct | score |
 | --- | ---: | ---: | ---: |
-| OpenAI privacy-filter | 160 | 54 | 0.337500 |
-| qwen3.6-35b-a3b vLLM-compatible | 160 | 116 | 0.725000 |
-| Presidio custom recognizers | 160 | 59 | 0.368750 |
+| OpenAI privacy-filter | 160 | 54 | 0.338 |
+| qwen3.6-35b-a3b vLLM-compatible | 160 | 116 | 0.725 |
+| Presidio custom recognizers | 160 | 59 | 0.369 |
 
 OpenAI masked string exact match by label:
 
 | label | total | correct | score |
 | --- | ---: | ---: | ---: |
-| `account_number` | 20 | 4 | 0.200000 |
-| `private_address` | 20 | 10 | 0.500000 |
-| `private_date` | 20 | 2 | 0.100000 |
-| `private_email` | 20 | 13 | 0.650000 |
-| `private_person` | 20 | 7 | 0.350000 |
-| `private_phone` | 20 | 10 | 0.500000 |
-| `private_url` | 20 | 5 | 0.250000 |
-| `secret` | 20 | 3 | 0.150000 |
+| `account_number` | 20 | 4 | 0.200 |
+| `private_address` | 20 | 10 | 0.500 |
+| `private_date` | 20 | 2 | 0.100 |
+| `private_email` | 20 | 13 | 0.650 |
+| `private_person` | 20 | 7 | 0.350 |
+| `private_phone` | 20 | 10 | 0.500 |
+| `private_url` | 20 | 5 | 0.250 |
+| `secret` | 20 | 3 | 0.150 |
 
 qwen3.6-35b-a3b masked string exact match by label:
 
 | label | total | correct | score |
 | --- | ---: | ---: | ---: |
-| `account_number` | 20 | 14 | 0.700000 |
-| `private_address` | 20 | 15 | 0.750000 |
-| `private_date` | 20 | 11 | 0.550000 |
-| `private_email` | 20 | 16 | 0.800000 |
-| `private_person` | 20 | 12 | 0.600000 |
-| `private_phone` | 20 | 17 | 0.850000 |
-| `private_url` | 20 | 14 | 0.700000 |
-| `secret` | 20 | 17 | 0.850000 |
+| `account_number` | 20 | 14 | 0.700 |
+| `private_address` | 20 | 15 | 0.750 |
+| `private_date` | 20 | 11 | 0.550 |
+| `private_email` | 20 | 16 | 0.800 |
+| `private_person` | 20 | 12 | 0.600 |
+| `private_phone` | 20 | 17 | 0.850 |
+| `private_url` | 20 | 14 | 0.700 |
+| `secret` | 20 | 17 | 0.850 |
 
 Presidio masked string exact match by label:
 
 | label | total | correct | score |
 | --- | ---: | ---: | ---: |
-| `account_number` | 20 | 9 | 0.450000 |
-| `private_address` | 20 | 9 | 0.450000 |
-| `private_date` | 20 | 4 | 0.200000 |
-| `private_email` | 20 | 16 | 0.800000 |
-| `private_person` | 20 | 3 | 0.150000 |
-| `private_phone` | 20 | 9 | 0.450000 |
-| `private_url` | 20 | 8 | 0.400000 |
-| `secret` | 20 | 1 | 0.050000 |
+| `account_number` | 20 | 9 | 0.450 |
+| `private_address` | 20 | 9 | 0.450 |
+| `private_date` | 20 | 4 | 0.200 |
+| `private_email` | 20 | 16 | 0.800 |
+| `private_person` | 20 | 3 | 0.150 |
+| `private_phone` | 20 | 9 | 0.450 |
+| `private_url` | 20 | 8 | 0.400 |
+| `secret` | 20 | 1 | 0.050 |
 
 ### dataset
 
