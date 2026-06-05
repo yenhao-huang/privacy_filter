@@ -1,0 +1,8 @@
+accelerate
+gradio
+httpx
+presidio-analyzer
+presidio-anonymizer
+safetensors
+torch
+transformers

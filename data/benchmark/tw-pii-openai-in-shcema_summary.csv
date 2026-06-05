@@ -1,0 +1,9 @@
+schema_name,schema_description,rows,avg_chars,min_chars,max_chars,avg_spans
+account_number,銀行帳號、信用卡、學號、員工編號,20,59.8,47,69,1.9
+private_address,縣市區+巷弄號樓、3+3 郵遞區號、外島地址,20,61.6,43,116,1.7
+private_date,民國紀年、農曆、月日 only,20,61.8,50,84,2.45
+private_email,hinet.net、edu.tw、gov.tw、台灣公司網域,20,70.55,56,86,1.55
+private_person,中文姓名、複姓、原住民名、含職稱、英文音譯,20,47.65,37,58,1.8
+private_phone,09xx 手機、各區碼市話、0800,20,55.85,44,74,1.85
+private_url,.tw domain、Dcard、痞客邦、短連結,20,86.05,69,118,1.5
+secret,密碼、API key、JWT、OTP、CVV,20,62.05,45,114,1.3

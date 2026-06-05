@@ -1,0 +1,4 @@
+split,rows,categories,avg_chars,median_chars,min_chars,max_chars,avg_spans
+long,300,20,4392.4,4338.0,2709,6667,17.39
+mid,300,20,628.49,624.0,360,977,7.41
+short,310,24,60.54,58.5,33,118,1.53
