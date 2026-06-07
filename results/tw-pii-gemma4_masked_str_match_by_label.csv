@@ -1,0 +1,9 @@
+schema_name,total,correct,score
+account_number,20,15,0.750
+private_address,20,16,0.800
+private_date,20,10,0.500
+private_email,20,16,0.800
+private_person,20,11,0.550
+private_phone,20,16,0.800
+private_url,20,14,0.700
+secret,20,17,0.850

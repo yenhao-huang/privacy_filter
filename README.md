@@ -38,6 +38,7 @@ This metric creates the gold masked string from benchmark spans, removes whitesp
 | --- | ---: | ---: | ---: |
 | OpenAI privacy-filter | 160 | 54 | 0.338 |
 | qwen3.6-35b-a3b vLLM-compatible | 160 | 116 | 0.725 |
+| gemma4-26b-a4b vLLM-compatible | 160 | 115 | 0.719 |
 | Presidio custom recognizers | 160 | 59 | 0.369 |
 
 OpenAI masked string exact match by label:
@@ -63,6 +64,19 @@ qwen3.6-35b-a3b masked string exact match by label:
 | `private_email` | 20 | 16 | 0.800 |
 | `private_person` | 20 | 12 | 0.600 |
 | `private_phone` | 20 | 17 | 0.850 |
+| `private_url` | 20 | 14 | 0.700 |
+| `secret` | 20 | 17 | 0.850 |
+
+gemma4-26b-a4b masked string exact match by label:
+
+| label | total | correct | score |
+| --- | ---: | ---: | ---: |
+| `account_number` | 20 | 15 | 0.750 |
+| `private_address` | 20 | 16 | 0.800 |
+| `private_date` | 20 | 10 | 0.500 |
+| `private_email` | 20 | 16 | 0.800 |
+| `private_person` | 20 | 11 | 0.550 |
+| `private_phone` | 20 | 16 | 0.800 |
 | `private_url` | 20 | 14 | 0.700 |
 | `secret` | 20 | 17 | 0.850 |
 
